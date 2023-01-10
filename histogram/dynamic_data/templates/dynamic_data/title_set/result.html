@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第 {{ title_set.id }} 组标题</title>
+</head>
+<body>
+    <h1>第 {{ title_set.id }} 组标题</h1>
+    <a href="/dd/title-set"><em>返回标题组列表</em></a>
+    <ul>
+        <li><p>第一标题: {{ title_set.title }}</p></li>
+        <li><p>第二标题: {{ title_set.text }}</p></li>
+    </ul>
+    <a href="{% url 'dd:detailTitle' title_set.id %}"><em>重新编辑？</em></a>
+</body>
+</html>

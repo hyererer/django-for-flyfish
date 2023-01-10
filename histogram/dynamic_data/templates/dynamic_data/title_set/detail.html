@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑第 {{ title_set.id }} 组标题</title>
+</head>
+<body>
+    <h1>编辑第 {{ title_set.id }} 组标题</h1>
+    <a href="/dd/title-set"><em>返回标题组列表</em></a>
+    <form action="{% url 'dd:editTitle' title_set.id %}" method="post">
+        {% csrf_token %}
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <ul>
+            <li>
+                <label for="ts_title">第一标题</label>
+                <input type="text" name="title" id="ts_title" value="{{ title_set.title }}">
+            </li>
+            <li>
+                <label for="ts_text">第二标题</label>
+                <input type="text" name="text" id="ts_text" value="{{ title_set.text }}">
+            </li>
+        </ul>
+        <input type="submit" value="完成编辑">
+    </form>
+</body>
+</html>

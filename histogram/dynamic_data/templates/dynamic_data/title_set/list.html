@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标题组列表</title>
+</head>
+<body>
+    <h1>标题组列表</h1>
+    <a href="/dd/"><em>返回动态数据主页</em></a>
+    {% if title_set_list %}
+        <ul>
+            {% for title_set in title_set_list %}
+                <li>
+                    <span>第 {{ title_set.id }} 组标题</span><a href="{% url 'dd:detailTitle' title_set.id %}"><em>(编辑)</em></a>
+                    <p>第一标题: {{ title_set.title }}</p>
+                    <p>第二标题: {{ title_set.text }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>不存在任何标题组</p>
+    {% endif %}
+</body>
+</html>
