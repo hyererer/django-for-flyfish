@@ -9,7 +9,7 @@ from .models import TitleSet
 #for test
 def result(request, title_set_id):
     title_set = get_object_or_404(TitleSet, pk=title_set_id)
-    return JsonResponse({"data": {"title": title_set.title, "text": title_set.text}}, safe=False)
+    return JsonResponse({"code": 200, "data": {"title": title_set.title, "text": title_set.text}}, safe=False)
 
 
 class ListTitleView(generic.ListView):
